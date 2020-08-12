@@ -2,5 +2,5 @@
 
 To run tests, run  
 ```
-yarn test
+yarn jest
 ```
