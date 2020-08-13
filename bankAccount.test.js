@@ -21,3 +21,8 @@ test('client deposits 500, then withdraws 200 resulting bank statement includes 
   expect(bankAccount.statement()).toBe(300);
 });
 
+
+test('statement includes correct formatting for date/credit/debit/balance', () => {
+ expect(bankAccount.statement()).toContainEqual(expect.arrayContaining(["date || credit || debit || balance"]));
+});
+

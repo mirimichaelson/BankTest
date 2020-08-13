@@ -4,7 +4,7 @@ class BankAccount {
     constructor () {
     this.currentBalance = 0
     this.bankStatement = [
-    // ["date || credit || debit || balance"]
+    ["date || credit || debit || balance"]
     ];
     }   
 
@@ -20,7 +20,7 @@ class BankAccount {
 
     statement() {  
     // "|| || || ${this.currentBalance}"
-    return this.currentBalance;
+    return this.bankStatement;
     }
 }
 
