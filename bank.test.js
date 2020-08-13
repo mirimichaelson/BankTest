@@ -1,4 +1,4 @@
-const BankAccount = require('./banktest.js');
+const BankAccount = require('./bankAccount.js');
 
 beforeEach(() => {
   bankAccount = new BankAccount;
@@ -18,8 +18,10 @@ beforeEach(() => {
 test('client deposits 500, then withdraws 200 resulting bank statement includes 300', () => {
   bankAccount.deposit(500);
   bankAccount.withdraw(200);
- expect(bankAccount.statement()).toBe(300);
+  expect(bankAccount.statement()).toBe(300);
 });
 
 
+
+// new Date(Date.now()).toLocaleString().split(',')[0]
 
