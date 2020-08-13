@@ -2,30 +2,48 @@ const DateOfTransaction = require('./dateOfTransaction.js');
 
 class BankAccount {
     constructor () {
-    this.currentBalance = 0
-    this.bankStatement = [
-    ["date || credit || debit || balance"]
-    ];
+      this.currentBalance = 0
+      this.creditAmount = 0
+      this.debitAmount = 0
+      this.unformattedStatement = ["date || credit || debit || balance"];
+      this.formattedStatement = []
     }   
 
     deposit(money) {
-    this.currentBalance += money;
+      this.currentBalance += money;
+      this.creditAmount += money;
+      this.addToBankStatement();
+     }
     
-    }
-
     withdraw(money) {
-    this.currentBalance -= money;
-    }
-    
+      this.currentBalance -= money;
+      this.debitAmount += money;
+      this.addToBankStatement();
+    };
 
-    statement() {  
-    // "|| || || ${this.currentBalance}"
-    return this.bankStatement;
+    addToBankStatement() {
+      this.dateOfTransaction = new DateOfTransaction
+
+      if (this.creditAmount == 0){
+        this.unformattedStatement.push([`${this.dateOfTransaction.date()} || || ${this.debitAmount}.00 || ${this.currentBalance}.00`])
+      } else { 
+        this.unformattedStatement.push([`${this.dateOfTransaction.date()} || ${this.creditAmount}.00 || || ${this.currentBalance}.00`])
+      }
+     
+      this.creditAmount = 0
+      this.debitAmount = 0
+    }  
+
+    formatStatement() {
+      this.unformattedStatement.forEach(line => 
+      this.formattedStatement.push(`\n${line}`)
+    );
+    }
+
+    printStatement() { 
+      this.formatStatement() 
+      return `${this.formattedStatement}`;
     }
 }
 
-// 14/01/2012 || || 500.00 || 2500.00
-
-
 module.exports = BankAccount;
-
