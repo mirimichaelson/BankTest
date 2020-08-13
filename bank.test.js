@@ -15,4 +15,11 @@ beforeEach(() => {
  expect(bankAccount.statement()).toBe(1000);
 });
 
+test('client deposits 500, then withdraws 200 resulting bank statement includes 300', () => {
+  bankAccount.deposit(500);
+  bankAccount.withdraw(200);
+ expect(bankAccount.statement()).toBe(300);
+});
+
+
 
