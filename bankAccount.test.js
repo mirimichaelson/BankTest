@@ -21,7 +21,3 @@ test('client deposits 500, then withdraws 200 resulting bank statement includes 
   expect(bankAccount.statement()).toBe(300);
 });
 
-
-
-// new Date(Date.now()).toLocaleString().split(',')[0]
-
