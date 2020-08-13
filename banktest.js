@@ -1,10 +1,14 @@
 class BankAccount {
-
-    deposit(money) {
+    constructor () {
+    this.balance = 0
     }
 
-    statement() {
-      return '500'
+    deposit(money) {
+    this.balance += money;
+    }
+
+    statement() {  
+    return this.balance;
     }
 }
 
