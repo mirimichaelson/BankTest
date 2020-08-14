@@ -12,16 +12,16 @@ class BankAccount {
     deposit(money) {
       this.currentBalance += money;
       this.creditAmount += money;
-      this.addToBankStatement();
+      this.addLineToBankStatement();
      }
     
     withdraw(money) {
       this.currentBalance -= money;
       this.debitAmount += money;
-      this.addToBankStatement();
-    };
+      this.addLineToBankStatement();
+    }
 
-    addToBankStatement() {
+    addLineToBankStatement() {
       this.dateOfTransaction = new DateOfTransaction
 
       if (this.creditAmount == 0){
